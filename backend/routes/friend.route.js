@@ -44,7 +44,7 @@ router.get("/request/:userId", (req, res) => {
 
     db.executeQuery(sql)
         .then(result => {
-            res.status(200).send({message: "Not yet implemented"});
+            res.status(200).send(result);
         })
 });
 
