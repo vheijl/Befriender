@@ -46,7 +46,7 @@ function Login(props) {
 
           </form>
 
-          <Register> </Register>
+          <Register/> 
 
       </div>     
   );

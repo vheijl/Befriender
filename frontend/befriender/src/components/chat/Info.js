@@ -1,12 +1,14 @@
 import React from 'react';
+import Map from './Map'
 
 function Info() {
     return (
       <div className="info">
-         <h1> Info </h1>
+         <h3> Info </h3>
+         <Map/>
       </div>
      
-  );
+    );
   }
   
   export default Info;
