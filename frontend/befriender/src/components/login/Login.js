@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import Register from './Register'
 
 
-function Login(event) {
+function Login(props) {
 
     // Used to keep track of user input to login
     const [stateLogin, setLogin] = useState({email:"",password:""});
@@ -13,11 +13,20 @@ function Login(event) {
 
     function loginUser(event) {
       event.preventDefault();
-      console.log(stateLogin);
 
-      fetch("http://localhost:3001/api/user/login", {method:"POST", body:JSON.stringify(stateLogin)})
+      fetch("http://localhost:3001/api/user/login", {
+        method: "POST", 
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(stateLogin)
+      })
       .then(results => results.json())
-      .then(data => console.log(data))
+      .then(data => {
+        sessionStorage.setItem("user", data.id);
+        props.history.push("/chat");
+      })
     }
 
     return (
