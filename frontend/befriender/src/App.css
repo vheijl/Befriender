@@ -1,13 +1,17 @@
 *{
-    font-family: sans-serif
+    font-family: sans-serif;
 }
 
-h1 {
+h1,h3 {
     text-align:center;
 }
 
 a {
     padding-right:10px
+}
+
+body {
+    background-color: rgb(228, 205, 228);
 }
 
 .App {
@@ -36,20 +40,28 @@ a {
 }
 
 .chatHistory {
-    background-color: red;
+    background-color: #537ec5;
+    border-radius: 20px;
 }
 
 .friends {
-    background-color: blue;
+    background-color: #b2fcff;
+    border-radius: 20px;
 }
 
 .info {
-    background-color: yellow;
+    background-color: #293a80;
+    border-radius: 20px;
 }
 
 .sendText {
-    background-color: green;
+    background-color: #f39422;
+    border-radius: 20px;
 }
+
+
+
+
 
 .chat {
     display: grid;
@@ -57,21 +69,29 @@ a {
     grid-template-rows: repeat(5, 1fr);
     grid-column-gap: 5px;
     grid-row-gap: 5px;
-    margin:5px
+    margin:5px;
 }
     
 .friends { 
-    grid-area: 1 / 1 / 4 / 2; 
+    grid-area: 1 / 1 / 6 / 2; 
 }
 
 .info { 
-    grid-area: 4 / 1 / 6 / 2; 
-}
+    grid-area: 1 / 5 / 6 / 6; 
+    }
 
 .chatHistory { 
-    grid-area: 1 / 2 / 4 / 6; 
+    grid-area: 1 / 2 / 5 / 5; 
 }
 
 .sendText { 
-    grid-area: 4 / 2 / 6 / 6; 
+    grid-area: 5 / 2 / 6 / 5; 
+}
+
+
+#mapid {
+    height:300px;
+    margin:3px;
+    border: solid black;
+    border-radius:5px;
 }
