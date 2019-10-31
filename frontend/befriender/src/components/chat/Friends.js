@@ -19,7 +19,7 @@ function Friends(props) {
         {props.data.map(friend => {
           return (
             <>
-              <div onClick={event => handleClick(friend)}>{friend.username}</div>.
+              <div onClick={event => handleClick(friend)}>{friend.username}</div>
             </>)
         })}
       </div>

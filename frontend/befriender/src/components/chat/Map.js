@@ -3,11 +3,16 @@ import '../../App.css';
 import L from 'leaflet';
 
 
-function Map(event) {
+function Map(props) {
 
     useEffect(()=>{
 
-        var mymap = L.map('mapid').setView([60, 15], 7);
+        let container = L.DomUtil.get('mapid');
+        if(container !== null){
+            container._leaflet_id = null;
+        }
+
+        var mymap = L.map('mapid').setView([props.friend.longitude, props.friend.latitude], 14);
         L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', 
         {
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -16,12 +21,16 @@ function Map(event) {
             accessToken: 'pk.eyJ1IjoiZWRpc2VlIiwiYSI6ImNrMmVyajdhZzAxcXIzYmwxODNwd2I5bWYifQ.LsnQirxtYHsBAn-8nchAwQ'
         }).addTo(mymap);
 
-        var marker = L.marker([60,15]).addTo(mymap);
+        var marker = L.marker([props.friend.longitude,props.friend.latitude]).addTo(mymap);
     });
 
     
     return (
-        <div id="mapid"> </div>
+        <>
+            <p>{props.friend.username}</p>
+            <p>{props.friend.description}</p>
+            <div id="mapid"> </div>
+        </>
     );
   }
   

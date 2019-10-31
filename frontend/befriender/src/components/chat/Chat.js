@@ -20,6 +20,7 @@ function Chat(props) {
         .then(results => results.json())
         .then(data => {
           setFriends(data);
+          setCurrentFriend(data[0]);
         })
     }
   }, [])
@@ -31,8 +32,8 @@ function Chat(props) {
       {show &&
         <>
           <ChatHistory friend={currentFriend} />
-          {stateFriends.length > 0 && <Friends onSelect={setFriend} data={stateFriends} />}
-          <Info friend={currentFriend} />
+          <Friends onSelect={setFriend} data={stateFriends} />
+          {currentFriend && <Info friend={currentFriend} />}
           <SendText friend={currentFriend} />
         </>}
         {!show && <h1>Please login to view this page.</h1>}
