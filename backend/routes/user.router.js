@@ -6,6 +6,8 @@ router.post("/login", (req, res) => {
 
     const { email, password } = req.body;
 
+    console.log(req.body);
+
     let sql = "SELECT id FROM ?? WHERE email = ? AND password = ?";
     const table = "user";
     const values = [email, password];
