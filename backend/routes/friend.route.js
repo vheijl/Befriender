@@ -26,7 +26,7 @@ router.get("/all/:userId", (req, res) => {
 
     const { userId } = req.params;
 
-    let sql = "SELECT DISTINCT user.id, user.username, user.description, user.image_url FROM friends, user WHERE friends.friend2 = user.id AND friends.friend1 = ? AND user.id IN (SELECT user.id FROM friends, user WHERE friends.friend1 = user.id AND friends.friend2 = ?)";
+    let sql = "SELECT DISTINCT user.id, user.username, user.description, user.image_url, user.longitude, user.latitude FROM friends, user WHERE friends.friend2 = user.id AND friends.friend1 = ? AND user.id IN (SELECT user.id FROM friends, user WHERE friends.friend1 = user.id AND friends.friend2 = ?)";
     let values = [userId, userId];
     sql = db.mysql.format(sql, values);
     db.executeQuery(sql)
