@@ -1,0 +1,77 @@
+*{
+    font-family: sans-serif
+}
+
+h1 {
+    text-align:center;
+}
+
+a {
+    padding-right:10px
+}
+
+.App {
+    background-color: cornflowerblue;
+}
+
+.header {
+    background-color: #c06a6a;
+    text-align:center;
+}
+
+.footer {
+    background-color: brown;
+    text-align:center;
+}
+
+.styling {
+    display:grid;
+    grid-template-rows: auto 1fr 50px;
+    min-height: 100vh;
+    grid-template-columns: 100%;
+}
+
+.login {
+    text-align:center;
+}
+
+.chatHistory {
+    background-color: red;
+}
+
+.friends {
+    background-color: blue;
+}
+
+.info {
+    background-color: yellow;
+}
+
+.sendText {
+    background-color: green;
+}
+
+.chat {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    margin:5px
+}
+    
+.friends { 
+    grid-area: 1 / 1 / 4 / 2; 
+}
+
+.info { 
+    grid-area: 4 / 1 / 6 / 2; 
+}
+
+.chatHistory { 
+    grid-area: 1 / 2 / 4 / 6; 
+}
+
+.sendText { 
+    grid-area: 4 / 2 / 6 / 6; 
+}
