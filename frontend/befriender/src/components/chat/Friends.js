@@ -1,15 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 function Friends(props) {
 
-  useEffect(() => {
-    console.log(props.data);
-    console.log(props.onSelect)
-
-  }, [props.data])
-
   const handleClick = friend => {
-    props.onSelect(friend)
+    props.onSelect(friend);
   }
 
   return (
@@ -19,7 +13,7 @@ function Friends(props) {
         {props.data.map(friend => {
           return (
             <>
-              <div onClick={event => handleClick(friend)}>{friend.username}</div>
+              <div className={ props.friend && props.friend.id == friend.id ? "active" : ''} onClick={event => handleClick(friend)}>{friend.username}</div>
             </>)
         })}
       </div>
