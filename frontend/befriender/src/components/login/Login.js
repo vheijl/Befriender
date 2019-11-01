@@ -25,6 +25,7 @@ function Login(props) {
       .then(results => results.json())
       .then(data => {
         sessionStorage.setItem("user", data.id);
+        props.onLogin();
         props.history.push("/chat");
       })
     }

@@ -27,6 +27,7 @@ function Map(props) {
     
     return (
         <>
+            <img src={props.friend.image_url} />
             <p>{props.friend.username}</p>
             <p>{props.friend.description}</p>
             <div id="mapid"> </div>
