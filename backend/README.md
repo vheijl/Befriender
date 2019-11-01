@@ -1,4 +1,5 @@
-RUN BACKEND by cd backend and npm start!
+# Setup
+1. Import sql file (befriender.sql) to a mysql (or whatever) database called befriender.  Then cd backend and npm start!
 
 # Search
 GET  
