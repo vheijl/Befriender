@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Person from './Person';
 
 function Search() {
@@ -7,37 +7,44 @@ function Search() {
   const [stateSearch, setSearch] = useState({ search: "" });
 
   function handleSearch(event) {
-    setSearch({ [event.target.name]: event.target.value })
+    setSearch({ [event.target.name]: event.target.value });
   }
 
   // Used to keep track of people in search
   const [peopleState, setPeople] = useState([]);
 
   function searchUser(event) {
-    event.preventDefault();
-    console.log(setSearch);
+    if (event) event.preventDefault();
 
-    if (stateSearch.search.length > 0) {
-      fetch(`http://localhost:3001/api/search/keyword`, {
-        method: "POST",
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({userId: sessionStorage.getItem("user"), keyword: stateSearch.search})
+    console.log(stateSearch);
+
+    fetch(`http://localhost:3001/api/search/keyword`, {
+      method: "POST",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ userId: sessionStorage.getItem("user"), keyword: stateSearch.search })
     })
-        .then(results => results.json())
-        .then((data) => {
-          console.log(data);
-          setPeople(data);
-        })
-    }
+      .then(results => results.json())
+      .then((data) => {
+        console.log(data);
+        setPeople(data);
+      })
   }
+
+  useEffect(() => {searchUser()}, [stateSearch])
+
+  useEffect(() => {
+    searchUser();
+  }, [])
 
   return (
     <div className="login">
 
-      <form onChange={searchUser}>
+      <form 
+        // onChange={searchUser}
+      >
         <h1> Search for people to befriend </h1>
         <div className="">
           <input onChange={handleSearch} name="search" type="text" placeholder="Search name or description" />
@@ -45,9 +52,9 @@ function Search() {
 
       </form>
 
-        {peopleState.map(person => {
-          return <Person personData={person} />
-        })}
+      {peopleState.map((person, index) => {
+        return <Person key={index} personData={person} />
+      })}
 
     </div>
   );
