@@ -35,10 +35,12 @@ function Login(props) {
          <form onSubmit={loginUser}>
             <h1> Login </h1>
             <div className="">
+                <p> Email: </p>
                 <input onChange={handleChange} name="email" type="email" placeholder="email" />
             </div>
 
             <div className="">
+              <p>Password:</p>
                 <input onChange={handleChange} name="password" type="password" placeholder="password" />
             </div>
 
@@ -46,7 +48,7 @@ function Login(props) {
 
           </form>
 
-          <Register/> 
+          <Register className="register"/> 
 
       </div>     
   );

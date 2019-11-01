@@ -20,7 +20,7 @@ function Person(props) {
     }
 
     return (
-        <div className="person">
+        <div>
             <h1>{props.personData.username}</h1>
             <p>{props.personData.email}</p>
             <p>{props.personData.description}</p>
