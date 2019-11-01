@@ -33,28 +33,37 @@ function Search() {
       })
   }
 
-  useEffect(() => {searchUser()}, [stateSearch])
+  useEffect(() => { searchUser() }, [stateSearch])
 
   useEffect(() => {
     searchUser();
   }, [])
 
+  let show = sessionStorage.getItem("user") ? true : false;
+
   return (
+
     <div className="login">
 
-      <form 
-        // onChange={searchUser}
-      >
-        <h1> Search for people to befriend </h1>
-        <div className="">
-          <input onChange={handleSearch} name="search" type="text" placeholder="Search name or description" />
-        </div>
+      {show &&
+        <>
+          <form
+          // onChange={searchUser}
+          >
+            <h1> Search for people to befriend </h1>
+            <div className="">
+              <input onChange={handleSearch} name="search" type="text" placeholder="Search name or description" />
+            </div>
 
-      </form>
+          </form>
 
-      {peopleState.map((person, index) => {
-        return <Person key={index} personData={person} />
-      })}
+          {peopleState.map((person, index) => {
+            return <Person isFriend={true} key={index} personData={person} />
+          })}
+        </>
+      }
+      {!show && <h1>Please login to view this page.</h1>}
+
 
     </div>
   );
