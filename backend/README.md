@@ -1,3 +1,5 @@
+RUN BACKEND by cd backend and npm start!
+
 # Search
 GET  
 **/api/search/keyword/:keyword**  
