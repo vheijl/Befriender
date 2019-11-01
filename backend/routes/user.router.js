@@ -25,12 +25,12 @@ router.post("/login", (req, res) => {
 router.post("/register", (req, res) => {
     // Register / create a user
 
-    const { username, email, password, description, image_url } = req.body;
+    const { username, email, password, description, image_url, latitude, longitude } = req.body;
 
     let sql = "INSERT INTO ?? (??) VALUES(?)";
     const table = "user";
-    const columns = ["username", "email", "password", "description", "image_url"];
-    const values = [username, email, password, description, image_url];
+    const columns = ["username", "email", "password", "description", "image_url", "latitude", "longitude"];
+    const values = [username, email, password, description, image_url, latitude, longitude];
     const inserts = [table, columns, values];
     sql = db.mysql.format(sql, inserts);
 
