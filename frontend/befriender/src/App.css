@@ -74,6 +74,10 @@ a {
     position: relative;
 }
 
+.info img {
+    max-width: 100%;
+}
+
 .info {
     padding: 10px;
 }
